@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Museum Mystery Quiz</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="A fast museum quiz about archeology & anthropology artifacts." />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" role="banner">
+    <h1>🏛️ Museum Mystery Quiz</h1>
+    <p class="tagline">Test your artifact savvy—beat the clock, set a high score!</p>
+  </header>
+
+  <main id="main" class="container" role="main">
+    <section class="card">
+      <div class="row gap">
+        <button id="startBtn" class="btn primary">Start Quiz</button>
+        <button id="resetBtn" class="btn" aria-describedby="resetHint">Reset</button>
+        <div id="resetHint" class="sr-only">Resets current score and question position.</div>
+      </div>
+
+      <div class="hud">
+        <div aria-live="polite">Question: <span id="qNum">0</span>/<span id="qTotal">0</span></div>
+        <div aria-live="polite">Score: <span id="score">0</span></div>
+        <div aria-live="polite">Time: <span id="time">00:00</span></div>
+        <div aria-live="polite">Best: <span id="best">0</span></div>
+      </div>
+
+      <hr />
+
+      <section id="quiz" class="quiz" aria-label="Quiz area">
+        <h2 id="question" class="question" aria-live="polite"></h2>
+
+        <ul id="choices" class="choices" role="list">
+          <!-- choices injected here -->
+        </ul>
+
+        <div class="row gap">
+          <button id="nextBtn" class="btn" disabled>Next</button>
+          <button id="finishBtn" class="btn" hidden>Finish</button>
+        </div>
+      </section>
+
+      <section id="result" class="result" hidden aria-live="polite">
+        <h2>Results</h2>
+        <p>You scored <strong><span id="finalScore">0</span></strong> / <span id="finalTotal">0</span>.</p>
+        <p id="bestNote" class="best-note" hidden>🎉 New high score!</p>
+        <div class="row gap">
+          <button class="btn primary" id="playAgainBtn">Play Again</button>
+        </div>
+      </section>
+    </section>
+
+    <details class="card">
+      <summary>How it works</summary>
+      <ul>
+        <li>10 randomized questions; +10 points per correct answer.</li>
+        <li>90-second global timer—finish before time runs out.</li>
+        <li>High score saved locally on your device.</li>
+        <li>Fully keyboard accessible: Tab/Enter/Space supported.</li>
+      </ul>
+    </details>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <p>© <span id="year"></span> Museum of Wonder • Quiz demo</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
